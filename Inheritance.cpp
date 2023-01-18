@@ -24,6 +24,8 @@ public:
 
 class Circle :public Point // class circle iherits public from class Points
 {
+protected:
+
     float r;
     string name;
 
@@ -46,11 +48,36 @@ public:
 
 };
 
+class Ball :public Circle
+{
+    string name;
+
+public:
+
+    void show()
+    {
+        cout<<"Ball with the name: "<<name<<" is based on a circle"<<endl;
+        Circle::show();
+        cout<<"Volume of this ball: "<<(((4/3)*3.14)*Circle::r*Circle::r*Circle::r)<<endl;
+    }
+
+    Ball(string nb="MyBall",string nc="circle base for ball", string np="middle ball",float a=0, float b=9, float pr=3)
+    :Circle(nc,np,a,b,pr)
+    {
+        name=nb;
+    }
+};
+
 int main()
 {
 
  Circle c1;
  c1.show();
+
+ cout<<endl;
+
+ Ball b1;
+ b1.show();
 
 
     return 0;
